@@ -6,10 +6,9 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <title>Index</title>
+        <title>Login</title>
     </head>
     <body>
-        <a href="consigna.pdf" target="_blank">CONSIGNA</a>
 
 
 
