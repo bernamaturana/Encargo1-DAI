@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <title>aksdjf</title>
+    <title>Lion Vehiculos</title>
 </head>
 <body>
     <a href="consigna.pdf" target="_blank">CONSIGNA</a>
