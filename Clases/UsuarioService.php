@@ -11,8 +11,8 @@ class UsuarioService
     $this->con = new Conexion();
   }
 
-  public function agregar($username, $password, $realname){
-    $sql = "INSERT INTO usuario (username, password, realname) VALUES ('$username','$password','$realname')";
+  public function agregar($username, $password, $realname, $tipoUsuario){
+    $sql = "INSERT INTO usuario (username, password, realname, tipoUsuario) VALUES ('$username','$password','$realname','$tipoUsuario')";
     return $this->con->query($sql);
   }
 
@@ -28,6 +28,7 @@ class UsuarioService
       $u->setUsername($fila["username"]);
       $u->setPassword($fila["password"]);
       $u->setRealname($fila["realname"]);
+      $u->setRealname($fila["tipoUsuario"]);
     }
     return $u;
   }
@@ -35,7 +36,7 @@ class UsuarioService
   public function listar(){
     $usuarios = array();
     $usuario = null;
-    $sql = "SELECT idusuario, username, realname FROM usuario";
+    $sql = "SELECT idusuario, username, realname, tipoUsurio FROM usuario";
     $result = $this->con->query($sql);
     if (mysqli_num_rows($result) > 0) {
       while ($fila = mysqli_fetch_array($result)) {
@@ -43,6 +44,7 @@ class UsuarioService
         $usuario->setIdUsuario($fila["idusuario"]);
         $usuario->setUserName($fila["username"]);
         $usuario->setRealname($fila["realname"]);
+        $usuario->setRealname($fila["tipoUsuario"]);
         array_push($usuarios,$usuario);
       }
     }
@@ -53,6 +55,9 @@ class UsuarioService
     $sql = "DELETE FROM usuario WHERE idusuario = '$idusuario'";
     return $this->con->query($sql);
   }
+
+  //método editar (seleccionar id, retornar datos a plantilla, actualizar BD)
+  
 
 }
 ?>
