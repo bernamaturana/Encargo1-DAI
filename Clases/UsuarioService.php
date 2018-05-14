@@ -4,60 +4,70 @@ include_once 'Usuario.php';
 
 class UsuarioService
 {
-  private $con;
-
-  function __construct()
-  {
-    $this->con = new Conexion();
+  public static function agregar($username, $password, $realname, $tipoUsuario){
+    $password=sha1($password);
+    $sql = "INSERT INTO usuario (username, password, realname, tipoUsuario) VALUES ('$username','$password','$realname',$tipoUsuario)";
+    return Conexion::query($sql);
   }
 
-  public function agregar($username, $password, $realname, $tipoUsuario){
-    $sql = "INSERT INTO usuario (username, password, realname, tipoUsuario) VALUES ('$username','$password','$realname','$tipoUsuario')";
-    return $this->con->query($sql);
-  }
-
-  public function verificar($username, $password) {
-    $u = null;
+  public static function verificar($username, $password) {
+    $password=sha1($password);
 
     $sql = "SELECT * FROM usuario WHERE username = '$username' AND password = '$password'";
-    $result = $this->con->query($sql);
+    $result = Conexion::query($sql);
+    
     if (mysqli_num_rows($result) > 0) {
       $fila = mysqli_fetch_array($result);
-      $u = new Usuario();
-      $u->setIdUsuario($fila["idusuario"]);
-      $u->setUsername($fila["username"]);
-      $u->setPassword($fila["password"]);
-      $u->setRealname($fila["realname"]);
-      $u->setRealname($fila["tipoUsuario"]);
+      return new Usuario($fila["idusuario"],$fila["password"],$fila["realname"],$fila["username"],$fila["tipoUsuario"]);
+    } else {
+      return null;
     }
-    return $u;
   }
 
-  public function listar(){
+  public static function usuarioPorId($id){ 
+    $sql = "SELECT * FROM usuario WHERE idusuario = $id";
+    $result = Conexion::query($sql);
+
+    if (mysqli_num_rows($result) > 0) {
+      $result = Conexion::query($sql);
+      $fila = mysqli_fetch_array($result);
+      return new Usuario($fila["idusuario"],$fila["password"],$fila["realname"],$fila["username"],$fila["tipoUsuario"]);
+    } else {
+      return null;
+    }
+  }
+
+  public static function listar(){
     $usuarios = array();
     $usuario = null;
-    $sql = "SELECT idusuario, username, realname, tipoUsurio FROM usuario";
-    $result = $this->con->query($sql);
+
+    $sql = "SELECT idusuario, username, realname, tipoUsuario FROM usuario";
+    $result = Conexion::query($sql);
+
     if (mysqli_num_rows($result) > 0) {
       while ($fila = mysqli_fetch_array($result)) {
-        $usuario = new Usuario;
-        $usuario->setIdUsuario($fila["idusuario"]);
-        $usuario->setUserName($fila["username"]);
-        $usuario->setRealname($fila["realname"]);
-        $usuario->setRealname($fila["tipoUsuario"]);
+        $usuario = new Usuario($fila["idusuario"],"",$fila["realname"],$fila["username"],$fila["tipoUsuario"]);
         array_push($usuarios,$usuario);
       }
     }
+
     return $usuarios;
   }
 
-  public function eliminar($idusuario){
+  public static function eliminar($idusuario){
     $sql = "DELETE FROM usuario WHERE idusuario = '$idusuario'";
-    return $this->con->query($sql);
+    return Conexion::query($sql);
   }
 
-  //método editar (seleccionar id, retornar datos a plantilla, actualizar BD)
-  
-
+  public static function actualizar($idusuario, $username, $password, $realname, $tipoUsuario){
+    $password=sha1($password);
+    $sql = "UPDATE `usuario`
+    SET 'password' = '$password',
+    `username` = '$username',
+    `realname` = '$realname',
+    `tipoUsuario` = '$tipoUsuario'
+    WHERE `usuario`.`idusuario` = $idusuario;";
+    return Conexion::query($sql);
+  }
 }
 ?>

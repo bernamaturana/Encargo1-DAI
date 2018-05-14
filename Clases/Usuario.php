@@ -8,6 +8,14 @@ class Usuario {
     private $username;
     private $tipoUsuario;
 
+    function __construct($id,$pass,$name,$usern,$tipo){
+        $this->idUsuario = $id;
+        $this->password=$pass;
+        $this->realname=$name;
+        $this->username=$usern;
+        $this->tipoUsuario=$tipo;
+    }
+
     public function getIdUsuario(){
         return $this->idUsuario;
     }
