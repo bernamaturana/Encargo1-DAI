@@ -61,12 +61,8 @@ class UsuarioService
 
   public static function actualizar($idusuario, $username, $password, $realname, $tipoUsuario){
     $password=sha1($password);
-    $sql = "UPDATE `usuario`
-    SET 'password' = '$password',
-    `username` = '$username',
-    `realname` = '$realname',
-    `tipoUsuario` = '$tipoUsuario'
-    WHERE `usuario`.`idusuario` = $idusuario;";
+    $sql = "UPDATE usuario SET username = '$username', password = '$password',  realname = '$realname', tipoUsuario = $tipoUsuario WHERE idusuario = $idusuario;";
+    // $sql = "INSERT INTO usuario (username, password, realname, tipoUsuario) VALUES ('$username','$password','$realname',$tipoUsuario)";
     return Conexion::query($sql);
   }
 }
