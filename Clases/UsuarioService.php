@@ -29,7 +29,6 @@ class UsuarioService
     $result = Conexion::query($sql);
 
     if (mysqli_num_rows($result) > 0) {
-      $result = Conexion::query($sql);
       $fila = mysqli_fetch_array($result);
       return new Usuario($fila["idusuario"],$fila["password"],$fila["realname"],$fila["username"],$fila["tipoUsuario"]);
     } else {
@@ -62,7 +61,6 @@ class UsuarioService
   public static function actualizar($idusuario, $username, $password, $realname, $tipoUsuario){
     $password=sha1($password);
     $sql = "UPDATE usuario SET username = '$username', password = '$password',  realname = '$realname', tipoUsuario = $tipoUsuario WHERE idusuario = $idusuario;";
-    // $sql = "INSERT INTO usuario (username, password, realname, tipoUsuario) VALUES ('$username','$password','$realname',$tipoUsuario)";
     return Conexion::query($sql);
   }
 }

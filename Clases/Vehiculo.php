@@ -7,6 +7,14 @@
         private $modelo;
         private $patente;
 
+        public function __construct($patente,$marca,$modelo,$color,$estado){
+            $this->patente = $patente;
+            $this->marca = $marca;
+            $this->modelo = $modelo;
+            $this->color = $color;
+            $this->estado = $estado;
+        }
+
         function getColor(){
             return $this->color;
         }
