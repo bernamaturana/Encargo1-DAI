@@ -51,6 +51,20 @@
             $sql = "UPDATE vehiculo SET estado = $estado WHERE patente = '$patente';";
             Conexion::query($sql);
         }
+
+        public static function vehiculoDisponiblePorMarca($marca){
+            $vehiculos = array();
+
+            $sql = "SELECT * FROM vehiculo WHERE marca = '$marca' AND estado = 0;";
+            $result = Conexion::query($sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($fila = mysqli_fetch_array($result)) {
+                    array_push($vehiculos,new Vehiculo($fila["patente"],$fila["marca"],$fila["modelo"],$fila["color"],$fila["estado"]));
+                }
+            }
+
+            return $vehiculos;
+        }
     }
-    
 ?>

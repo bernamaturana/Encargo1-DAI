@@ -1,13 +1,25 @@
 <?php
     class Arriendo {
         private $idArriendo;
-        private $patente;
-        private $rutCliente;
+		private $patente;
+		//rut, nombre y apellidos de CLIENTE no USUARIO
+		private $rutCliente;
         private $nombreCliente;
         private $apellidoCliente;
         private $fechaArriendo;
         private $fechaDevolucion;
-        private $fechaRealDevolucion;
+		private $fechaRealDevolucion;
+		
+		public function __construct($idArriendo, $patente, $rutCliente, $nombreCliente, $apellidoCliente, $fechaArriendo, $fechaDevolucion, $fechaRealDevolucion){
+			$this->idArriendo = $idArriendo;
+			$this->patente = $patente;
+			$this->rutCliente = $rutCliente;
+			$this->nombreCliente = $nombreCliente;
+			$this->apellidoCliente = $apellidoCliente;
+			$this->fechaArriendo = $fechaArriendo;
+			$this->fechaDevolucion = $fechaDevolucion;
+			$this->fechaRealDevolucion = $fechaRealDevolucion;
+		}
 
 	    function getIdArriendo()
 	    {
