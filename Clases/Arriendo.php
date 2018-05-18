@@ -100,8 +100,5 @@
     	{
 	    	$this->fechaRealDevolucion = $fechaRealDevolucion;
 	    }
-
-        
-        
     }
 ?>
