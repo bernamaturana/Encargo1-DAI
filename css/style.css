@@ -1,3 +1,22 @@
 *{
     font-family: 'Raleway';
 }
+
+header{
+
+    background: #6f3f20;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 20px ;
+
+
+}
+
+.columna-nav{
+
+    text-align: center;
+    align-content: center;
+    border: 0.5px solid #9b9b9b;
+    margin-bottom: 1px;
+    padding: 2px;
+}
