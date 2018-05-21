@@ -28,9 +28,19 @@
 </header>
 <section class="container">
     <main>
-    <h1>Por favor Logueese o Registrese</h1>
-    <a href="login.php">Login</a> o
-    <a href="registro.php">Registro</a>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password">
+        </div>
+        <div class="form-group">
+            <label for="realname">Nombre Real:</label>
+            <input type="text" class="form-control" id="realname">
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar</button>
     </main>
 
 </section>
