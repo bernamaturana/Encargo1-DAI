@@ -1,6 +1,3 @@
-<?php
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,7 +10,6 @@
     </head>
     <body>
         <a href="consigna.pdf" target="_blank">CONSIGNA</a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni quaerat nemo voluptas nisi recusandae hic tempora voluptates tempore sequi pariatur enim, est distinctio quod vel, quidem odit mollitia consectetur. Voluptas.</p>
 
 
         <script src="js/jquery-3.3.1.min.js"></script>

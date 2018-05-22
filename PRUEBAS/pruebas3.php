@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <script src="../js/script.js"></script>
+    <script src="../js/script/vehiculos.js"></script>
     <title>Document</title>
 </head>
 <body onload="load()">
