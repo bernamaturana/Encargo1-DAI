@@ -20,7 +20,6 @@
             $usuarios = UsuarioService::listar();
         }
     }
-    
 ?>
 
 
