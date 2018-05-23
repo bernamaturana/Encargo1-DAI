@@ -1,3 +1,6 @@
+<?php 
+	include_once 'php/login_usuario.php';
+ ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,8 +26,8 @@
     
    
 </header>
-
-        <form action="Clases/UsuarioService.php">
+    <div class="container">
+    <form method="POST" action="login.php" onsubmit="validarCampos()">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="username" class="form-control" id="username">
@@ -33,23 +36,43 @@
                 <label for="pwd">Password:</label>
                 <input type="password" class="form-control" id="password">
             </div>
-            <div class="form-group form-check">
+            <!--<div class="form-group form-check">
                 <label class="form-check-label">
                 <input class="form-check-input" type="checkbox"> Remember me
                 </label>
-            </div>
+            </div>-->
             <button type="submit" class="btn btn-primary">Loguear</button>
         </form>
 
+    </div>
+        
+
              <footer class="row">
                 <div class="col">
-                    <h4>Footer</h4>
-                    <h6>12 Columnas</h6>
+                <h4><img src="img/logo-lion2.png" alt="Logo" style="width:80px;" >Lion Rent a Car</h4>
+                    <h6>Calle Falsa #123 , Viña del Mar , Quinta Región, Chile</h6>
+                    <h6>+56322446787</h6>
+                    <h6>Correo@superfalso.com</h6>
                 </div>
             </footer>
         
 
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/popper.min.js"></script>
+        <script type="text/javascript">
+    	function validarCampos() {
+    		var txtUsername= document.getElementById('username').value;
+    		var txtPassword= document.getElementById("password").value;
+    		if (txtUsername=="" ) {
+    			alert("ingrese username");
+                document.getElementById("username").focus();
+    		}
+            if (txtPassword=="") {
+                alert("ingrese password");
+                document.getElementById("password").focus();
+            }
+            
+    	}
+    </script>
     </body>
 </html>
