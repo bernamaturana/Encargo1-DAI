@@ -1,3 +1,6 @@
+<?php 
+	include_once 'php/login_usuario.php';
+ ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,8 +26,8 @@
     
    
 </header>
-
-        <form method="POST" action="login.php" onsubmit="validarCampos()">
+    <div class="container">
+    <form method="POST" action="login.php" onsubmit="validarCampos()">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="username" class="form-control" id="username">
@@ -33,13 +36,16 @@
                 <label for="pwd">Password:</label>
                 <input type="password" class="form-control" id="password">
             </div>
-            <div class="form-group form-check">
+            <!--<div class="form-group form-check">
                 <label class="form-check-label">
                 <input class="form-check-input" type="checkbox"> Remember me
                 </label>
-            </div>
+            </div>-->
             <button type="submit" class="btn btn-primary">Loguear</button>
         </form>
+
+    </div>
+        
 
              <footer class="row">
                 <div class="col">
