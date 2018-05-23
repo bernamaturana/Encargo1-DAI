@@ -24,7 +24,7 @@
    
 </header>
 
-        <form action="Clases/UsuarioService.php">
+        <form method="POST" action="login.php" onsubmit="validarCampos()">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="username" class="form-control" id="username">
@@ -53,5 +53,20 @@
 
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/popper.min.js"></script>
+        <script type="text/javascript">
+    	function validarCampos() {
+    		var txtUsername= document.getElementById('username').value;
+    		var txtPassword= document.getElementById("password").value;
+    		if (txtUsername=="" ) {
+    			alert("ingrese username");
+                document.getElementById("username").focus();
+    		}
+            if (txtPassword=="") {
+                alert("ingrese password");
+                document.getElementById("password").focus();
+            }
+            
+    	}
+    </script>
     </body>
 </html>
